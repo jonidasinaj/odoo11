@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_author_form" model="ir.ui.view">
+            <field name="name">Author.form</field>
+            <field name="model">biblioteka.author</field>
+            <field name="arch" type="xml">
+                <form string="Author">
+                     <group>
+                         <field name="name"/>
+                         <field name="born_date"/>
+                         <field name="death_date"/>
+                         <field name="note"/>
+                     </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_author_tree" model="ir.ui.view">
+            <field name="name">Author.tree</field>
+            <field name="model">biblioteka.author</field>
+            <field name="arch" type="xml">
+                <tree string="Author">
+                         <field name="name"/>
+                         <field name="born_date"/>
+                         <field name="death_date"/>
+                         <field name="note"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_author_search" model="ir.ui.view">
+            <field name="name">Author.search</field>
+            <field name="model">biblioteka.author</field>
+            <field name="arch" type="xml">
+                <search string="Author">
+                         <field name="name"/>
+                         <field name="born_date"/>
+                         <field name="death_date"/>
+                         <field name="note"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="open_view_author_tree" model="ir.actions.act_window">
+            <field name="name">Author</field>
+            <field name="res_model">biblioteka.author</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_author_tree"/>
+            <field name="search_view_id" ref="view_author_search"/>
+        </record>
+
+        <menuitem id="main_menu_author" name="Author" />
+        <menuitem
+                id="menu_open_view_author"
+                action="open_view_author_tree"
+                parent="main_menu_author"
+                sequence="20"/>
+    </data>
+</odoo>

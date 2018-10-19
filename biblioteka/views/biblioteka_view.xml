@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="view_biblioteka_form" model="ir.ui.view">
+            <field name="name">Biblioteka.form</field>
+            <field name="model">biblioteka.biblioteka</field>
+            <field name="arch" type="xml">
+                <form string="Biblioteka">
+                     <group>
+                         <field name="name"/>
+                         <field name="status"/>
+                         <field name="date_aprovimi"/>
+                         <field name="date_dorezimi"/>
+                         <field name="arsye_vonese"/>
+                         <field name="lexues_id"/>
+                         <field name="liber_id"/>
+                     </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_biblioteka_tree" model="ir.ui.view">
+            <field name="name">Biblioteka.tree</field>
+            <field name="model">biblioteka.biblioteka</field>
+            <field name="arch" type="xml">
+                <tree string="Biblioteka">
+                         <field name="name"/>
+                         <field name="status"/>
+                         <field name="date_aprovimi"/>
+                         <field name="date_dorezimi"/>
+                         <field name="arsye_vonese"/>
+                         <field name="lexues_id"/>
+                         <field name="liber_id"/>
+
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_biblioteka_search" model="ir.ui.view">
+            <field name="name">Biblioteka.search</field>
+            <field name="model">biblioteka.biblioteka</field>
+            <field name="arch" type="xml">
+                <search string="Biblioteka">
+                         <field name="name"/>
+                         <field name="status"/>
+                         <field name="date_aprovimi"/>
+                         <field name="date_dorezimi"/>
+                         <field name="arsye_vonese"/>
+                         <field name="lexues_id"/>
+                         <field name="liber_id"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="open_view_biblioteka_tree" model="ir.actions.act_window">
+            <field name="name">Biblioteka</field>
+            <field name="res_model">biblioteka.biblioteka</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_biblioteka_tree"/>
+            <field name="search_view_id" ref="view_biblioteka_search"/>
+        </record>
+
+        <menuitem id="main_menu_biblioteka" name="Biblioteka" />
+        <menuitem
+                id="menu_open_view_biblioteka"
+                action="open_view_biblioteka_tree"
+                parent="main_menu_biblioteka"
+                sequence="1"/>
+
+    </data>
+
+</odoo>

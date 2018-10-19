@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+         <record id="ir_cron_lexues_check" model="ir.cron">
+            <field name="name">Lexues Action Rule: check validity</field>
+            <field name="model_id" ref="model_biblioteka_lexues"/>
+            <field name="state">code</field>
+            <field name="code">model._check_date()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field name="doall" eval="False"/>
+            <field name="active" eval="False" />
+        </record>
+
+        <record id="view_lexues_form" model="ir.ui.view">
+            <field name="name">Lexues.form</field>
+            <field name="model">biblioteka.lexues</field>
+            <field name="arch" type="xml">
+                <form string="Lexues">
+                    <header>
+                    <button string="draft" type="object" name="draft_progressbar" />
+        			<button string="regjistruar" type="object" name="regjistruar_progressbar" attrs="{'invisible': [('status','!=','draft')]}"/>
+		        	<button string="Skaduar" type="object" name="skaduar_progressbar" attrs="{'invisible': [('status','=','skaduar')]}"/>
+			        <button string="Cregjistruar" type="object" name="cregjistruar_progressbar" attrs="{'invisible': [('status','=','cregjistruar')]}"/>
+                    <button string="Riregjistruar" type="object" name="riregjistruar_progressbar" attrs="{'invisible': [('status','=','riregjistruar')]}"/>
+		            <field name="status" widget="statusbar"/>
+                    </header>
+                     <group>
+                         <field name="name"/>
+                         <field name="mbiemer"/>
+                         <field name="mosha"/>
+                         <field name="informacion"/>
+                         <field name="date_regjistrimi"/>
+                         <field name="date_skadence"/>
+                         <field name="date_cregjistrimi"/>
+                         <field name="date_perjashtimi"/>
+                         <field name="vlefshmeria"/>
+                         <field name="afat_riregjistrimi" invisible="1"/>
+                     </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_lexues_tree" model="ir.ui.view">
+            <field name="name">Lexues.tree</field>
+            <field name="model">biblioteka.lexues</field>
+            <field name="arch" type="xml">
+                <tree string="Lexues">
+                    <button string="Set to draft" type="object" name="draft_progressbar" attrs="{'invisible': [('status', '=', 'draft')]}"/>
+        			<button string="Set to regjistruar" type="object" name="regjistruar_progressbar" class="oe_highlight" attrs="{'invisible': [('status','!=','regjistruar')]}"/>
+		        	<button string="Skaduar" type="object" name="skaduar_progressbar" attrs="{'invisible': [('status','=','skaduar')]}"/>
+			        <button string="Cregjistruar" type="object" name="cregistruar_progressbar" attrs="{'invisible': [('status','=','cregjistruar')]}"/>
+                    <button string="Riregjistruar" type="object" name="riregjistruar_progressbar" attrs="{'invisible': [('status','=','riregjistruar')]}"/>
+		            <field name="status" widget="statusbar"/>
+                         <field name="name"/>
+                         <field name="mbiemer"/>
+                         <field name="mosha"/>
+                         <field name="informacion"/>
+                         <field name="date_regjistrimi"/>
+                         <field name="date_skadence"/>
+                         <field name="date_cregjistrimi"/>
+                         <field name="date_perjashtimi"/>
+                         <field name="vlefshmeria"/>
+                         <field name="afat_riregjistrimi"/>
+
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_lexues_search" model="ir.ui.view">
+            <field name="name">Lexues.search</field>
+            <field name="model">biblioteka.lexues</field>
+            <field name="arch" type="xml">
+                <search string="Lexues">
+                         <field name="name"/>
+                         <field name="mbiemer"/>
+                         <field name="mosha"/>
+                         <field name="informacion"/>
+                         <field name="date_regjistrimi"/>
+                         <field name="date_skadence"/>
+                         <field name="date_cregjistrimi"/>
+                         <field name="date_perjashtimi"/>
+                         <field name="vlefshmeria"/>
+                         <field name="afat_riregjistrimi"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="open_view_lexues_tree" model="ir.actions.act_window">
+            <field name="name">Lexues</field>
+            <field name="res_model">biblioteka.lexues</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_lexues_tree"/>
+            <field name="search_view_id" ref="view_lexues_search"/>
+        </record>
+
+        <menuitem id="main_menu_lexues" name="Lexues" />
+        <menuitem
+                id="menu_open_view_lexues"
+                action="open_view_lexues_tree"
+                parent="main_menu_lexues"
+                sequence="20"/>
+
+    </data>
+
+</odoo>

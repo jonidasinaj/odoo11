@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_librat_form" model="ir.ui.view">
+            <field name="name">Librat.form</field>
+            <field name="model">biblioteka.librat</field>
+            <field name="arch" type="xml">
+                <form string="Librat">
+                     <group>
+                         <field name="liber_id"/>
+                         <field name="title"/>
+                         <field name="author"/>
+                         <field name="sasi_fizike"/>
+                         <field name="sasi_gjendje"/>
+                         <field name="informacion"/>
+                         <field name="disponueshmeria"/>
+                         <field name="rezervuar"/>
+                     </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_librat_tree" model="ir.ui.view">
+            <field name="name">Librat.tree</field>
+            <field name="model">biblioteka.librat</field>
+            <field name="arch" type="xml">
+                <tree string="Librat">
+                         <field name="liber_id"/>
+                         <field name="title"/>
+                         <field name="author"/>
+                         <field name="sasi_fizike"/>
+                         <field name="sasi_gjendje"/>
+                         <field name="informacion"/>
+                         <field name="disponueshmeria"/>
+                         <field name="rezervuar"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_librat_search" model="ir.ui.view">
+            <field name="name">Librat.search</field>
+            <field name="model">biblioteka.librat</field>
+            <field name="arch" type="xml">
+                <search string="Librat">
+                         <field name="liber_id"/>
+                         <field name="title"/>
+                         <field name="author"/>
+                         <field name="sasi_fizike"/>
+                         <field name="sasi_gjendje"/>
+                         <field name="informacion"/>
+                         <field name="disponueshmeria"/>
+                         <field name="rezervuar"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="open_view_librat_tree" model="ir.actions.act_window">
+            <field name="name">Librat</field>
+            <field name="res_model">biblioteka.librat</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_librat_tree"/>
+            <field name="search_view_id" ref="view_librat_search"/>
+        </record>
+
+        <menuitem id="main_menu_librat" name="Librat" />
+        <menuitem
+                id="menu_open_view_librat"
+                action="open_view_librat_tree"
+                parent="main_menu_librat"
+                sequence="20"/>
+
+    </data>
+
+</odoo>
