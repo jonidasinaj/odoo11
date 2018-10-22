@@ -63,7 +63,7 @@
             <field name="search_view_id" ref="view_librat_search"/>
         </record>
 
-        <menuitem id="main_menu_librat" name="Librat" />
+        <menuitem id="main_menu_librat" name="Librat" web_icon="biblioteka,static/description/liber.jpg"/>
         <menuitem
                 id="menu_open_view_librat"
                 action="open_view_librat_tree"
